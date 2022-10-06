@@ -3,3 +3,4 @@ venv
 creeds.json
 kramanto.py
 __pycache__/
+.idea
