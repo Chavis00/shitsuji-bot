@@ -24,7 +24,7 @@ class Gsheet_Helper:
         self.last_filled_row = None
 
     def update_last_filled_row(self):
-        self.last_filled_row = list(filter(None, self.worksheet.col_values(1)))
+        self.last_filled_row = len(list(filter(None, self.worksheet.col_values(1))))
 
     def get_items(self):
         items = self.get_sheet(SHEET_NAME)
