@@ -4,14 +4,22 @@ from oauth2client.service_account import ServiceAccountCredentials
 import pandas as pd
 from datetime import datetime
 from settings import columns, WORKING_SHEET_ID, SHEET_NAME, CREDS_JSON, SCOPE
+import json
+
+CREDS = CREDS_JSON.replace("'", "\"")
+CREDS = json.loads(CREDS)
 
 
 class Gsheet_Helper:
     def __init__(self):
-        creds = ServiceAccountCredentials.from_json_keyfile_name(
-            CREDS_JSON,
-            SCOPE
-        )
+        creds = ServiceAccountCredentials.from_json_keyfile_dict(CREDS, SCOPE)
+
+
+        #creds = ServiceAccountCredentials.from_json_keyfile_name(CREEDS, SCOPE)
+        #creds = ServiceAccountCredentials._to_json(
+        #    CREDS_JSON,
+        #    SCOPE
+        #)
         self.client = gspread.authorize(creds)
         self.sheet_name = SHEET_NAME
         self.sheet_id = WORKING_SHEET_ID

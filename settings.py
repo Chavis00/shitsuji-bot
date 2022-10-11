@@ -21,7 +21,7 @@ TOKEN = os.getenv('BOT_TOKEN')
 """ Google Sheet """
 WORKING_SHEET_ID = os.getenv('WORKING_SHEET_ID')
 SHEET_NAME = os.getenv('SHEET_NAME')
-CREDS_JSON = 'creeds.json'
+CREDS_JSON = os.getenv('CREDS_JSON')
 
 """ Recipe API  """
 RECIPE_URL = os.getenv('RECIPE_URL')
