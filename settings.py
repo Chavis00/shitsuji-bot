@@ -19,15 +19,15 @@ columns = {
 TOKEN = os.getenv('BOT_TOKEN')
 
 """ Google Sheet """
-WORKING_SHEET_ID = os.getenv('WORKING_SHEET_ID')
-SHEET_NAME = os.getenv('SHEET_NAME')
-CREDS_JSON = os.getenv('CREDS_JSON')
-
-""" Recipe API  """
-RECIPE_URL = os.getenv('RECIPE_URL')
-RECIPE_APP_ID = os.getenv('RECIPE_APP_ID')
-RECIPE_APP_KEY = os.getenv('RECIPE_APP_KEY')
+WORKING_SHEET_ID = os.environ.get('WORKING_SHEET_ID')
+SHEET_NAME = os.environ.get('SHEET_NAME')
+CREDS_JSON = os.environ.get('CREDS_JSON')
 SCOPE = [
     'https://www.googleapis.com/auth/spreadsheets',
     'https://www.googleapis.com/auth/drive',
 ]
+
+""" Recipe API  """
+RECIPE_URL = os.environ.get('RECIPE_URL')
+RECIPE_APP_ID = os.environ.get('RECIPE_APP_ID')
+RECIPE_APP_KEY = os.environ.get('RECIPE_APP_KEY')
