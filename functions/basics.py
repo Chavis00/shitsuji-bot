@@ -14,8 +14,9 @@ def start(update, context):
 
 def help(update, context):
     """Send a message when the command /help is issued."""
-    update.message.reply_text(
-        '/pic: fotos de gente\n/short: acortador de URL\n/clima: clima hoy\n/sumar: suma 2 numeros\n/ppt: piedra papel o tijera\n/recetas: recetas de cocina!\n')
+    update.message.reply_text("/spend <desc> <amount> <category> updates google sheet \n/total returns total \n/rm removes last spend\n/recipe <food> returns random recipe")
+                             
+                             
 
 
 def echo(update, context):
