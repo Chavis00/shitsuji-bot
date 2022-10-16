@@ -4,7 +4,6 @@ from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 from heart import beat
 from functions.basics import error
 from functions import basics
-from functions.third_apps import recipeapi, google_sheet_API
 from settings import INSTALLED_APPS, TOKEN
 
 
@@ -23,11 +22,13 @@ def main():
   dp.add_handler(CommandHandler("help", basics.help))
 
   if 'GSHEET' in INSTALLED_APPS:
+    from functions.third_apps import google_sheet_API
     sheetAPI = google_sheet_API.Gsheet_Helper()
     dp.add_handler(CommandHandler("spend", sheetAPI.spend))
     dp.add_handler(CommandHandler("total", sheetAPI.total))
     dp.add_handler(CommandHandler("rm", sheetAPI.rm_last))
   if 'RECIPE' in INSTALLED_APPS:
+    from functions.third_apps import recipeapi
     recetasAPI = recipeapi.RecipeAPI()
     dp.add_handler(CommandHandler("recipe", recetasAPI.send_recipe))
 
